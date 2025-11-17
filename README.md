@@ -454,4 +454,3 @@ For issues, questions, or suggestions:
 
 ---
 
-**Made with ❤️ for the ERPNext Community**
