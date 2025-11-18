@@ -1,0 +1,165 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:title",
+ "creation": "2025-11-17 15:48:11.058915",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "category",
+  "keywords",
+  "question",
+  "answer",
+  "language",
+  "answer_urdu",
+  "related_doctype",
+  "usage_count",
+  "helpful_count",
+  "unhelpful_count",
+  "is_active"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Category",
+   "options": "Accounting\nHR\nSales\nPurchase\nInventory\nCRM\nManufacturing\nProjects\nGeneral\nPayroll\nRecruitment\nAttendance\nLeave",
+   "reqd": 1
+  },
+  {
+   "description": "Comma-separated keywords for search",
+   "fieldname": "keywords",
+   "fieldtype": "Small Text",
+   "label": "Keywords"
+  },
+  {
+   "description": "Common question or query",
+   "fieldname": "question",
+   "fieldtype": "Long Text",
+   "label": "Question",
+   "reqd": 1
+  },
+  {
+   "description": "Answer or solution",
+   "fieldname": "answer",
+   "fieldtype": "Text Editor",
+   "label": "Answer",
+   "reqd": 1
+  },
+  {
+   "default": "English",
+   "fieldname": "language",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Language",
+   "options": "English\nUrdu\nBilingual"
+  },
+  {
+   "description": "Urdu translation of answer",
+   "fieldname": "answer_urdu",
+   "fieldtype": "Text Editor",
+   "label": "Answer (Urdu)"
+  },
+  {
+   "description": "DocType this article relates to",
+   "fieldname": "related_doctype",
+   "fieldtype": "Link",
+   "label": "Related DocType",
+   "options": "DocType"
+  },
+  {
+   "default": "0",
+   "description": "Number of times this article was used",
+   "fieldname": "usage_count",
+   "fieldtype": "Int",
+   "label": "Usage Count",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "helpful_count",
+   "fieldtype": "Int",
+   "label": "Helpful Count",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "unhelpful_count",
+   "fieldtype": "Int",
+   "label": "Unhelpful Count",
+   "read_only": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-11-17 15:48:11.058915",
+ "modified_by": "Administrator",
+ "module": "Chatnext",
+ "name": "Knowledge Base Article",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title",
+ "track_changes": 1
+}

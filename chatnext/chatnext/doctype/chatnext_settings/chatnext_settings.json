@@ -1,0 +1,174 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-17 14:30:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "ai_section",
+  "enable_ai_responses",
+  "ai_provider",
+  "ai_model",
+  "column_break_1",
+  "ai_temperature",
+  "ai_max_tokens",
+  "api_keys_section",
+  "openrouter_api_key",
+  "column_break_api_1",
+  "gemini_api_key",
+  "column_break_api_2",
+  "deepseek_api_key",
+  "settings_section",
+  "default_language",
+  "show_proactive_suggestions",
+  "column_break_2",
+  "enable_feedback",
+  "session_timeout"
+ ],
+ "fields": [
+  {
+   "fieldname": "ai_section",
+   "fieldtype": "Section Break",
+   "label": "AI Settings"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_ai_responses",
+   "fieldtype": "Check",
+   "label": "Enable AI Responses",
+   "description": "Use AI for generating intelligent responses"
+  },
+  {
+   "depends_on": "enable_ai_responses",
+   "fieldname": "ai_provider",
+   "fieldtype": "Select",
+   "label": "AI Provider",
+   "options": "Local (Transformers)\nOllama (Local)\nOpenRouter\nGoogle Gemini\nDeepSeek",
+   "default": "Ollama (Local)",
+   "description": "Choose AI provider - Ollama runs locally, API providers need keys"
+  },
+  {
+   "depends_on": "eval:doc.enable_ai_responses && doc.ai_provider=='Local (Transformers)'",
+   "fieldname": "ai_model",
+   "fieldtype": "Select",
+   "label": "Local AI Model",
+   "options": "facebook/opt-125m\nfacebook/opt-350m\ngpt2\nflan-t5-base",
+   "default": "facebook/opt-125m",
+   "description": "Smaller models are faster but less accurate"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "enable_ai_responses",
+   "fieldname": "ai_temperature",
+   "fieldtype": "Float",
+   "label": "AI Temperature",
+   "default": "0.7",
+   "description": "Controls randomness (0.1-1.0). Lower = more focused, Higher = more creative"
+  },
+  {
+   "depends_on": "enable_ai_responses",
+   "fieldname": "ai_max_tokens",
+   "fieldtype": "Int",
+   "label": "Max Response Length",
+   "default": "150",
+   "description": "Maximum number of tokens in AI response"
+  },
+  {
+   "depends_on": "eval:doc.enable_ai_responses && doc.ai_provider!='Local (Transformers)'",
+   "fieldname": "api_keys_section",
+   "fieldtype": "Section Break",
+   "label": "API Keys Configuration"
+  },
+  {
+   "depends_on": "eval:doc.ai_provider=='OpenRouter'",
+   "fieldname": "openrouter_api_key",
+   "fieldtype": "Password",
+   "label": "OpenRouter API Key",
+   "description": "Get your API key from https://openrouter.ai/keys"
+  },
+  {
+   "fieldname": "column_break_api_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.ai_provider=='Google Gemini'",
+   "fieldname": "gemini_api_key",
+   "fieldtype": "Password",
+   "label": "Google Gemini API Key",
+   "description": "Get your free API key from https://makersuite.google.com/app/apikey"
+  },
+  {
+   "fieldname": "column_break_api_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.ai_provider=='DeepSeek'",
+   "fieldname": "deepseek_api_key",
+   "fieldtype": "Password",
+   "label": "DeepSeek API Key",
+   "description": "Get your API key from https://platform.deepseek.com/"
+  },
+  {
+   "fieldname": "settings_section",
+   "fieldtype": "Section Break",
+   "label": "General Settings"
+  },
+  {
+   "fieldname": "default_language",
+   "fieldtype": "Select",
+   "label": "Default Language",
+   "options": "Auto Detect\nEnglish\nUrdu",
+   "default": "Auto Detect"
+  },
+  {
+   "default": "1",
+   "fieldname": "show_proactive_suggestions",
+   "fieldtype": "Check",
+   "label": "Show Proactive Suggestions"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "enable_feedback",
+   "fieldtype": "Check",
+   "label": "Enable Feedback Buttons"
+  },
+  {
+   "fieldname": "session_timeout",
+   "fieldtype": "Int",
+   "label": "Session Timeout (minutes)",
+   "default": "30",
+   "description": "Auto-close inactive chat sessions after this duration"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-11-17 14:30:00",
+ "modified_by": "Administrator",
+ "module": "Chatnext",
+ "name": "Chatnext Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

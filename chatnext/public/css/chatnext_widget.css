@@ -1,0 +1,481 @@
+/**
+ * Chatnext Widget Styles
+ * Modern, clean design for the chat assistant
+ */
+
+/* Main Widget Container */
+.chatnext-widget {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    z-index: 9999;
+}
+
+/* Floating Button */
+.chatnext-float-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10000;
+}
+
+.chatnext-float-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+}
+
+.chatnext-float-btn.chatnext-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.chatnext-icon {
+    width: 28px;
+    height: 28px;
+    color: white;
+    stroke-width: 2;
+}
+
+.chatnext-notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ff4757;
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    border: 2px solid white;
+}
+
+/* Chat Window */
+.chatnext-window {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 420px;
+    max-width: calc(100vw - 48px);
+    height: 600px;
+    max-height: calc(100vh - 100px);
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 10000;
+}
+
+/* Header */
+.chatnext-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.chatnext-header-content h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.chatnext-subtitle {
+    margin: 4px 0 0 0;
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+.chatnext-context-indicator {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+}
+
+.chatnext-header-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.chatnext-language-select {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.chatnext-language-select option {
+    color: #333;
+}
+
+.chatnext-minimize-btn,
+.chatnext-close-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.chatnext-minimize-btn:hover,
+.chatnext-close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.chatnext-minimize-btn svg,
+.chatnext-close-btn svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2;
+}
+
+/* Messages Container */
+.chatnext-messages-container {
+    flex: 1;
+    overflow-y: auto;
+    background: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+}
+
+.chatnext-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Messages */
+.chatnext-message {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.chatnext-message-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.chatnext-user-message .chatnext-message-avatar {
+    background: #3498db;
+}
+
+.chatnext-message-content {
+    flex: 1;
+    background: white;
+    padding: 12px 16px;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.chatnext-user-message {
+    flex-direction: row-reverse;
+}
+
+.chatnext-user-message .chatnext-message-content {
+    background: #3498db;
+    color: white;
+}
+
+.chatnext-message-content p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.chatnext-message-content .chatnext-urdu {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 13px;
+    opacity: 0.8;
+    direction: rtl;
+    text-align: right;
+}
+
+.chatnext-source {
+    display: block;
+    margin-top: 8px;
+    color: #7f8c8d;
+    font-size: 11px;
+}
+
+.chatnext-user-message .chatnext-source {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Feedback Buttons */
+.chatnext-feedback-btns {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #ecf0f1;
+}
+
+.chatnext-feedback-btn {
+    background: none;
+    border: 1px solid #ddd;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.chatnext-feedback-btn:hover {
+    background: #f8f9fa;
+    border-color: #667eea;
+}
+
+.chatnext-feedback-btn.selected.chatnext-helpful {
+    background: #27ae60;
+    border-color: #27ae60;
+    color: white;
+}
+
+.chatnext-feedback-btn.selected.chatnext-not-helpful {
+    background: #e74c3c;
+    border-color: #e74c3c;
+    color: white;
+}
+
+/* Typing Indicator */
+.chatnext-typing-dots {
+    display: flex;
+    gap: 4px;
+    padding: 4px 0;
+}
+
+.chatnext-typing-dots span {
+    width: 8px;
+    height: 8px;
+    background: #95a5a6;
+    border-radius: 50%;
+    animation: typing 1.4s infinite;
+}
+
+.chatnext-typing-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.chatnext-typing-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+    0%, 60%, 100% {
+        opacity: 0.3;
+        transform: translateY(0);
+    }
+    30% {
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+
+/* Suggestions */
+.chatnext-suggestions {
+    padding: 12px 20px;
+    background: white;
+    border-top: 1px solid #ecf0f1;
+}
+
+.chatnext-suggestions-header {
+    font-size: 12px;
+    color: #7f8c8d;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.chatnext-suggestions-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.chatnext-suggestion-chip {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.chatnext-suggestion-chip:hover {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+/* Input Container */
+.chatnext-input-container {
+    padding: 16px 20px;
+    background: white;
+    border-top: 1px solid #ecf0f1;
+    display: flex;
+    gap: 12px;
+    align-items: flex-end;
+}
+
+.chatnext-input {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-size: 14px;
+    resize: none;
+    min-height: 40px;
+    max-height: 150px;
+    font-family: inherit;
+    line-height: 1.5;
+    transition: border-color 0.2s;
+}
+
+.chatnext-input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.chatnext-send-btn {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.chatnext-send-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.chatnext-send-btn svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2;
+}
+
+/* Footer */
+.chatnext-footer {
+    padding: 8px 20px;
+    background: #f8f9fa;
+    border-top: 1px solid #ecf0f1;
+    text-align: center;
+}
+
+.chatnext-footer small {
+    color: #95a5a6;
+    font-size: 11px;
+}
+
+/* Scrollbar Styling */
+.chatnext-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chatnext-messages::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chatnext-messages::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+}
+
+.chatnext-messages::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .chatnext-window {
+        width: calc(100vw - 32px);
+        height: calc(100vh - 100px);
+        bottom: 16px;
+        right: 16px;
+    }
+
+    .chatnext-float-btn {
+        bottom: 16px;
+        right: 16px;
+        width: 56px;
+        height: 56px;
+    }
+
+    .chatnext-icon {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* RTL Support for Urdu */
+.chatnext-message-content[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Print Hide */
+@media print {
+    .chatnext-widget {
+        display: none !important;
+    }
+}
